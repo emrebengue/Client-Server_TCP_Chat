@@ -18,7 +18,7 @@ std::mutex clientsMutex; // Mutex to protect access to clientSockets
  * @brief Create a new socket for a TCP connection.
  * 
  * @return int - The socket descriptor, or -1 if creation fails.
- */
+ **/
  
 int createSocket() {
 
@@ -37,7 +37,7 @@ int createSocket() {
  * @param soc The socket file descriptor
  * @param port The port number to bind to
  * @return true if the socket is successfully bound and listening, false otherwise
- */
+ **/
 
 bool bindAndListen(int soc, int port) {
 
@@ -68,7 +68,7 @@ bool bindAndListen(int soc, int port) {
 
 * @param clientSocket The socket descriptor.
 * @return The received data as a string, or an empty string if there was an error.
-*/
+**/
 
 std::string receiveData(int clientSocket) {
 
@@ -89,7 +89,7 @@ std::string receiveData(int clientSocket) {
  * @param clientSocket The socket to which data will be sent
  * @param data The data to be sent
  * @return true if the data was sent successfully, false otherwise
- */
+ **/
 
 bool sendData(int clientSocket, const std::string& data) {
     ssize_t sent = send(clientSocket, data.c_str(), data.length(), 0); // Send data
@@ -105,7 +105,7 @@ bool sendData(int clientSocket, const std::string& data) {
  * 
  * @param message The message to be broadcasted.
  * @param excludeSocket The socket to exclude from receiving the message.
- */
+ **/
 
 void broadcastMessage(const std::string& message, int excludeSocket) {
     std::lock_guard<std::mutex> lock(clientsMutex); // Protect access to clientSockets
@@ -119,7 +119,7 @@ void broadcastMessage(const std::string& message, int excludeSocket) {
 //Handles communication with the client
 /**
  * @param clientSocket The socket descriptor.
- */
+ **/
 
 void handleClient(int clientSocket) {
     char nameBuffer[1024]; // Buffer to store client's name

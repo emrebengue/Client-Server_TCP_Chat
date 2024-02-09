@@ -11,7 +11,7 @@
  * @brief Create a new socket for a TCP connection.
  * 
  * @return int - The socket descriptor, or -1 if creation fails.
- */
+ **/
 
 int createSocket() {
     int soc = socket(AF_INET, SOCK_STREAM, 0); // Create a new socket
@@ -29,7 +29,7 @@ int createSocket() {
  * @param ip The IP address of the server.
  * @param port The port number of the server.
  * @return True if connection is successful, false otherwise.
- */
+ **/
 
  bool connectToServer(int soc, const char* ip, int port) {
     sockaddr_in server;
@@ -50,7 +50,7 @@ int createSocket() {
 * @param soc The socket descriptor.
 * @param data The data to be sent.
 * @return True if the data was sent successfully, false otherwise.
-*/
+**/
 
 bool sendData(int soc, const std::string& data) {
     ssize_t sent = send(soc, data.c_str(), data.length(), 0); //Send the data through the socket
@@ -66,7 +66,7 @@ bool sendData(int soc, const std::string& data) {
 * @brief Receives data from the socket and returns it as a string.
 * @param soc The socket descriptor.
 * @return The received data as a string.
-*/
+**/
 
 void receiveData(int soc) {
 
