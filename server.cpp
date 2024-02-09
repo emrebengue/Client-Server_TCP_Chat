@@ -19,6 +19,7 @@ std::mutex clientsMutex; // Mutex to protect access to clientSockets
  * 
  * @return int - The socket descriptor, or -1 if creation fails.
  */
+ 
 int createSocket() {
 
     // Create a new socket
@@ -37,6 +38,7 @@ int createSocket() {
  * @param port The port number to bind to
  * @return true if the socket is successfully bound and listening, false otherwise
  */
+
 bool bindAndListen(int soc, int port) {
 
     // Set up the server address
@@ -67,6 +69,7 @@ bool bindAndListen(int soc, int port) {
 * @param clientSocket The socket descriptor.
 * @return The received data as a string, or an empty string if there was an error.
 */
+
 std::string receiveData(int clientSocket) {
 
     char buffer[1024];  // Buffer to store received data
@@ -87,6 +90,7 @@ std::string receiveData(int clientSocket) {
  * @param data The data to be sent
  * @return true if the data was sent successfully, false otherwise
  */
+
 bool sendData(int clientSocket, const std::string& data) {
     ssize_t sent = send(clientSocket, data.c_str(), data.length(), 0); // Send data
     if (sent < 0) {
@@ -102,6 +106,7 @@ bool sendData(int clientSocket, const std::string& data) {
  * @param message The message to be broadcasted.
  * @param excludeSocket The socket to exclude from receiving the message.
  */
+
 void broadcastMessage(const std::string& message, int excludeSocket) {
     std::lock_guard<std::mutex> lock(clientsMutex); // Protect access to clientSockets
     for (int socket : clientSockets) {
@@ -115,6 +120,7 @@ void broadcastMessage(const std::string& message, int excludeSocket) {
 /**
  * @param clientSocket The socket descriptor.
  */
+
 void handleClient(int clientSocket) {
     char nameBuffer[1024]; // Buffer to store client's name
     int nameLength = recv(clientSocket, nameBuffer, sizeof(nameBuffer) - 1, 0); // Receive client's name
@@ -127,7 +133,7 @@ void handleClient(int clientSocket) {
     char buffer[1024];
     while (true) {
         int bytesReceived = recv(clientSocket, buffer, sizeof(buffer), 0); // Receive data from client
-        if (bytesReceived <= 0 || std::string(buffer) == "exit()") { // Check for receive error or "exit()"
+        if (bytesReceived <= 0) { // Check for receive error or end of connection
             std::cerr << "Chat closed" << std::endl;
             break;
         }

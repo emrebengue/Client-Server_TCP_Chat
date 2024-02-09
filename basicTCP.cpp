@@ -12,6 +12,7 @@
 *
 * @return the created socket, or -1 if failed to create socket
 */
+
 int createSocket() {
 
 
@@ -32,6 +33,7 @@ int createSocket() {
  * @param port The port number of the server
  * @return True if the connection is established successfully, otherwise false
  */
+
 bool serverConnection(int soc, const char* ip, int port) {
 
     sockaddr_in server;
@@ -56,6 +58,7 @@ bool serverConnection(int soc, const char* ip, int port) {
  * @param data The data to be sent
  * @return true if the data was sent successfully, false otherwise
  */
+
 bool sendData(int soc, std::string& data) {
 
     ssize_t sent = send(soc, data.c_str(), data.length(), 0);
@@ -72,6 +75,7 @@ bool sendData(int soc, std::string& data) {
  * @param soc The socket to receive data from
  * @return The received data as a string
  */
+ 
 std::string receiveData(int soc) {
 
     char buffer[1024]; 
