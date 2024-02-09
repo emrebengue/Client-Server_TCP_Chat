@@ -1,6 +1,6 @@
 ﻿# Client-Server_TCP_Chat
-	
-	Constructed in C++ utilizing socket programming principles and multi-	threading techniques
+ 
+- Constructed in C++ utilizing socket programming principles and multi-threading techniques
 |
 |
 * basicTCP.cpp
@@ -11,3 +11,6 @@
 * How to run?
 	
 	Clone and cd to “Client-Server_TCP_Chat” and run the following commands:
+
+ 	g++ server.cpp -o server pthread
+  	g++ client.cpp -o client pthread
