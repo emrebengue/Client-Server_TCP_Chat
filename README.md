@@ -1,4 +1,6 @@
-﻿# Client-Server_TCP_Chat
+![Screenshot](chat_screenshot.png)
+ 
+ # Client-Server_TCP_Chat
  
 - Constructed in C++ utilizing socket programming principles and multi-threading techniques
 |
