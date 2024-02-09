@@ -62,7 +62,6 @@ bool bindAndListen(int soc, int port) {
     return true;
 }
 
-//Unused function
 /**
 * Receives data from the client socket. 
 
@@ -82,7 +81,6 @@ std::string receiveData(int clientSocket) {
     return std::string(buffer, received);  // Return received data as string
 }
 
-//Unused function 
 /**
  * Sends data to the client socket.
  * 
@@ -116,7 +114,6 @@ void broadcastMessage(const std::string& message, int excludeSocket) {
     }
 }
 
-//Handles communication with the client
 /**
  * @param clientSocket The socket descriptor.
  **/
