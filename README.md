@@ -6,7 +6,7 @@
 
 * basicTCP.cpp
 
-- It is a basic C++ TCP application that demonstrates the foundational steps for creating a TCP client, including creating a socket, connecting to a server, sending data, and receiving data over a network using the TCP/IP protocol. 
+	- It is a basic C++ TCP application that demonstrates the foundational steps for creating a TCP client, including creating a socket, connecting to a server, sending data, and receiving data over a network using the TCP/IP protocol. 
 
 * How to run?
 	
